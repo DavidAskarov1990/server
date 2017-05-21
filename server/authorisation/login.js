@@ -28,6 +28,7 @@ router.post('/login', function (req, res) {
                         return res.sendStatus(401);
                     }
                     var token = jwt.encode({username:username}, config.secretKey);
+                    res.cookie('token', token);
                     res.send(token);
                 })
             })

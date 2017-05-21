@@ -7,13 +7,12 @@ var jwt = require('jwt-simple');
 var User = require('../model/user');
 var config = require('../../config');
 
-
 router.get('/user', function (req, res) {
-    if(!req.headers['authorization']){
+    if(!req.cookies.token){
         return res.sendStatus(401);
     }
     try{
-        var auth = jwt.decode(req.headers['authorization'], config.secretKey);
+        var auth = jwt.decode(req.cookies.token, config.secretKey);
     } catch(err) {
         return res.sendStatus(401)
     }
