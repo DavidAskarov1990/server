@@ -21,6 +21,7 @@ app.use(function (req, res, next) {
 
 app.use(require('./server/authorisation/index'));
 app.use(require('./server/video/index'));
+app.use(require('./server/admin/index'));
 
 var server = app.listen(port, function() {
     console.log('Server up and running in %d ', server.address().port)

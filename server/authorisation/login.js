@@ -19,7 +19,7 @@ router.post('/login', function (req, res) {
                 if(err){
                     return  res.sendStatus(500);
                 } else if(!user){
-                    return res.sendStatus(401);
+                    return res.sendStatus(400);
                 }
                 bcrypt.compare(password, user.password, function (err, valid) {
                     if(err){

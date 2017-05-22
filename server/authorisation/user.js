@@ -16,7 +16,6 @@ router.get('/user', function (req, res) {
     } catch(err) {
         return res.sendStatus(401)
     }
-
     User.findOne({username: auth.username}, function (err, user) {
         if(err){
             return res.sendStatus(500);
@@ -43,5 +42,28 @@ router.post('/user', function (req, res) {
         }
     })
 });
+
+router.get('/admin', function (req, res) {
+    if(!req.cookies.token){
+        return res.sendStatus(401);
+    }
+    try{
+        var auth = jwt.decode(req.cookies.token, config.secretKey);
+    } catch(err) {
+        return res.sendStatus(401)
+    }
+    User.findOne({username: auth.username}, function (err, user) {
+        if(err){
+            return res.sendStatus(500);
+        }else{
+            if(user.admin){
+                res.json(true);
+            } else{
+                res.json(false);
+            }
+        }
+    })
+});
+
 
 module.exports = router;
