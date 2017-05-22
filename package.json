@@ -1,5 +1,5 @@
 {
-  "name": "node_jwt_1",
+  "name": "node",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -16,11 +16,9 @@
     "cookies": "^0.7.0",
     "express": "^4.15.2",
     "express-session": "^1.15.2",
-    "jsonwebtoken": "^7.4.1",
     "jwt-simple": "^0.5.1",
     "lodash": "^4.17.4",
     "mongodb": "^2.2.26",
-    "mongoose": "^4.9.9",
-    "request": "^2.81.0"
+    "mongoose": "^4.9.9"
   }
 }

@@ -9,19 +9,15 @@ var jwt = require('jwt-simple');
 var config = require('../../config');
 var User = require('../model/user');
 var _ = require('lodash');
+var isAuthorization = require('../isAuthorization');
 
-router.get('/videos', function (req, res) {
-    if(!req.cookies.token){
-        return res.sendStatus(401);
-    }
+router.get('/videos', isAuthorization, function (req, res) {
     res.json(jsonFile);
 });
 
-router.post('/video', function (req, res) {
+router.post('/video', isAuthorization, function (req, res) {
     if(!req.body.id || !req.body.title){
         return res.sendStatus(400)
-    } else if(!req.cookies.token){
-        return res.sendStatus(401);
     }
     try{
         var auth = jwt.decode(req.cookies.token, config.secretKey);
@@ -42,7 +38,6 @@ router.post('/video', function (req, res) {
         {
             return res.sendStatus(304)
         }
-
         User.update({_id: user._id}, {$push: {"youtubeLinks":req.body}}, function (err) {
             if(err){
                 return res.sendStatus(500);

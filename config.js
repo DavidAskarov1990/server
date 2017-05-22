@@ -3,7 +3,7 @@
  */
 
 module.exports = {
-    port:3000,
+    port:8000,
     db_url: 'mongodb://localhost:27017/db_task',
     secretKey:'defaultSecretKey'
 };

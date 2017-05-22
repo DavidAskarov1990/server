@@ -6,11 +6,9 @@ var bcrypt = require('bcrypt');
 var jwt = require('jwt-simple');
 var User = require('../model/user');
 var config = require('../../config');
+var isAuthorization = require('../isAuthorization');
 
-router.get('/user', function (req, res) {
-    if(!req.cookies.token){
-        return res.sendStatus(401);
-    }
+router.get('/user', isAuthorization, function (req, res) {
     try{
         var auth = jwt.decode(req.cookies.token, config.secretKey);
     } catch(err) {
