@@ -6,10 +6,10 @@ var router = require('express').Router();
 var jsonFile = require('./videos.json');
 var bcrypt = require('bcrypt');
 var jwt = require('jwt-simple');
-var config = require('../../config');
+var config = require('../../../config');
 var User = require('../model/user');
 var _ = require('lodash');
-var isAuthorization = require('../isAuthorization');
+var isAuthorization = require('../../isAuthorization');
 
 router.get('/videos', isAuthorization, function (req, res) {
     res.json(jsonFile);

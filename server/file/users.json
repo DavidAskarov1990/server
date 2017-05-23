@@ -1,0 +1,12 @@
+[
+  {
+    "_id":"1",
+    "password":"$2a$10$66kJob4zvevS.qaTwWsGdOTViNSWm6Hd3lgKbsEFQMcnDbC8ENSxW",
+    "username":"admin",
+    "ban":false,
+    "admin":true,
+    "youtubeLinks":[
+      {"title":"Relax","id":"P5csD0SX8jI"}
+    ]
+  }
+]

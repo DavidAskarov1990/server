@@ -5,8 +5,8 @@ var router = require('express').Router();
 var bcrypt = require('bcrypt');
 var jwt = require('jwt-simple');
 var User = require('../model/user');
-var config = require('../../config');
-var isAuthorization = require('../isAuthorization');
+var config = require('../../../config');
+var isAuthorization = require('../../isAuthorization/index');
 
 router.get('/user', isAuthorization, function (req, res) {
     try{
