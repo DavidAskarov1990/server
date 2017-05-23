@@ -16,7 +16,7 @@ app.use(cookieParser());
 app.use(function (req, res, next) {
     res.header('Access-Control-Allow-Origin', 'http://localhost:3000');
     res.header('Access-Control-Allow-Credentials', true);
-    res.header('Access-Control-Allow-Headers', 'content-type,  X-Custom-Header application/json, Authorization, set-cookie, Accept, X-Requested-With');
+    res.header('Access-Control-Allow-Headers', 'content-type,  X-Custom-Header, Authorization, set-cookie, Accept, X-Requested-With');
     next();
 });
 
@@ -24,7 +24,6 @@ app.use(function (req, res, next) {
  * With File DB
  */
 app.use(require('./server/file/index'));
-
 
 /**
  * With MongoDB
